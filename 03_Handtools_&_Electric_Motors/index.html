@@ -25,153 +25,29 @@
 
 #### Week 2: Electric motors, hand tools and soldering
 <font size="4">
-Today we talked about three mayor topics: electric motors, hand tools and soldering. 
-
-<b>
-  Electric motors
-</b>
+In this session we talked about three mayor topics: electric motors, hand tools and soldering. So for this weeks assignment we have to apply a bit 
+of all the knowledge we gained. The task is to build a kinematic sculpture and include circutry. 
 <br>
-There are different kinds of electric motors - dc, ac, stepper, geared etc. Some are better than others at certain tasks.
-Stepper motors for example are very percise whereas the dc motors we saw can spin very fast. 
-Today we fucused on dc motors as they are fairly simple to work with. Their speed can be regulated by changing the input voltage which 
-makes them useful for the task we will have to do!
-
-<b>
-  Hand tools
-</b>
-<br>
-1: Saw station
-<br>
-
-
-
-
-
-
-
-
-
-
-<img src="CAD_Sketch_Press-Fit_Triangle.jpeg" width="480" height="480">
-
-I assembled a small sphere with them which you can see here:
-
- <img src="press-fit_triangles.JPG" width="480" height="480">
- <br>
- <br>
- 
-The second assignment of today was to model two household items in CAD. I decided to model my (very cool) space mouse and a water bottle. (A space mouse is a computer mouse 
-that allows you to freely move in 3d space.) I decided to choose two items that require different methods to model. (e.g., The mouse utilizes the “revolve around axis” tool 
-whereas the bottles utilizes the “shell”, “thread” and “loft” tool.)
-<font size="5">
+I decided to build a structure that moves small table tennis balls in mechanically programmable semi circles from side to side. 
+My idea was to incorporate a gear reduction system that increases the torque output of the small electric motor and turns an octaganol
+camshaft. On the camshaft are small ellipses that move the semi circles up and down. Since there are multiple of these semi circles they can move
+in mesmerizing ways e.g. in a sine curve. 
 <br>
 <br>
-<b>
-Modelling process:
-</b>
-</font>
-<br>
-</font>
-<ul>
-
-<li>First, I took two pictures of it with some calipers next to it so that I would be able to calibrate the image to correct size later. (Since it is symmetrical, I only need one 
-picture from above and one from a side.)</li>
-
-<br>
-<li>Then I imported these pictures into Fusion 360 and put them on their corresponding axis. </li>
-<img src="Screenshot1.png" width="816" height="480">
-<br>
-</li>After that I used the spline tool to create the outline of one half of the mouse and connected it right in the middle. </li>
-<img src="Screenshot2.png" width="816" height="480">
-<br>
-</li>Next, I revolved the sketch around the center axis to get a perfectly symmetrical shape. </li>
-<img src="Screenshot3.png" width="816" height="480">
-<br>
-</li>Then the body was split to give every part a different material and cut of the unnecessary bottom.</li>
-<img src="Screenshot4.png" width="816" height="480">
-<img src="Screenshot5.png" width="816" height="480">
-<br>
-</li>Next, I modelled the knobs on the side of the mouse and mirrored them. </li>
-<img src="Screenshot6.png" width="816" height="480">
-<img src="Screenshot7.png" width="816" height="480">
-<br>
-</li>After that I split the model some more and gave every single section a different material. (e.g. rubber and plastic for the top part, aluminum for the bottom etc.)</li>
-<img src="Screenshot9.png" width="816" height="480">
-<br>
-</li>Finally, I rendered the whole model and exported it. </li>
-<img src="Render_Space_Mouse.PNG" width="816" height="480">
-<br>
-</ul>
-Here is a video on the process: 
+At first I wanted to laser cut most of the parts, but since I had little to no time to access the laser cutter until the assignment was due,
+I decided to 3D print the majority of the parts. 
+Here is a timelapse of some of the feet getting printed!: 
 <video with="816" height="480" controls>
-  <source src="Space_Mouse_Modelling.mov" type="video/mp4">
+<source src="IMG_0001.MOV" type="video/mp4">
+</video>
 <br>
 <br>
+Here is a video of the CAD modelling process:
 <br>
-
-  <IMG SRC="Space_Mouse_Spinning.gif" width="816" height="480">
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<font size="5">
-<b>
-And this is how I modelled the bottle:
-</b>
-</font>
-<ul>
-<li>Create cylinder</li>
-<li>Make the top thinner using a rectangle as a cutting tool</li>
-<li>Use a fillet for a smooth transition</li>
-<li>Create the upper and lower ring (revolve around axis)</li>
-<li>Use a smaller cylinder and shell tool to make the bottle cap</li>
-<li>Create threads on bottle and bottle cap (thread tool)</li>
-<li>Assemble all parts</li>
-<li>Connect bottle and lid via a band using loft tool</li>
-<li>Cut out grooves on bottle cap using small circles and a circular pattern</li>
-</ul>
-<br>
-<br>
-<br>
-<br>
-Here is a video on the process: 
 <video with="816" height="480" controls>
-  <source src="Bottle_Screenrec.mov" type="video/mp4">
-<br>
-<br>
-<br>
-... and a picture:
-<img src="Bottle_Screenshot.png" width="816" height="480">
+<source src="Screen Recording 2023-07-03 at 21.16.09.mov" type="video/mp4">
+</video>
 
-
-<IMG SRC="Water_Bottle_Spinning.gif" width="816" height="480">
-
-  <br>
-  <br>
-  <br>
-  <br>
-<font size="5"> 
-  <b>
-Cutting a Benchy from Cardboard
-</font>
-</b>
-<br>
-<br>
-Another project I did was this laser cut Benchy. A Benchy is commonly used as a benchmark for 3d printers and since I like them I decided to cut one out of
-cardboard using the laser cutter. 
-  <br>
-There are multiple ways to do this. You can stack layers of cardboard ontop of eachother, next to each other, fold them or use interlocking slices. I decided to
-use interlocking slices, because this is a relatively material efficient and it looks cool! 
-Instead of manually drawing all these slices, I found an application called "Slicer for Fusion 360". It is a discontiued (and buggy ;)) Software that allows you to upload 3d models 
-and slice them into laser-cuttable pieces that interlock. 
-<br>
-Here is a picture of what the model looks like:
 
 
 
