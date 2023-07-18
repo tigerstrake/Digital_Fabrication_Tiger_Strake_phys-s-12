@@ -47,8 +47,9 @@ or photogeometry. Photogeomety uses multiple pictures of an object and digitally
 The assignment for today was to 3d print something that could not be manufactured using another technique (or at least be very difficult to make using another technique).
 The second part of the assignment was to 3d scan something. 
 <br>
-For the printing assingment I decided to make something useful for my final project, the rocket. I designed a Thrust Vector Control (TVC) mount that relies on the material properties of PLA (Poly lactic acid, a 3d printing filament). It utilizes something called a compliant mechanism. The model can move, because the plastic is not completely 
-stiff, but rather has some flexibility. 
+For the printing assingment I decided to make something useful for my final project, the rocket. I designed a Thrust Vector Control (TVC) mount that relies on the material 
+properties of PLA (Poly lactic acid, a 3d printing filament). It utilizes something called a compliant mechanism. The model can move, because the plastic is not completely 
+ridgit, but rather has some flexibility. 
 <br>
 Here is a picture of the digital 3d modelds:
 <br>
@@ -59,91 +60,27 @@ you can download the file
 <br>
 <br>
 This is how the 3d printed model looks like:
+<br>
+<br>
+Another honorable mention is that I used the 3d printer to upgrade my kinetic sculpture. This iteration now uses heringbone gears. The teeth of 
+heringbone gears are angled inwards, giving them more surface area and helping them stay aligned. 
+<br>
+To create them, I used the Fusion 360 Spur Gear add-in and used the sweep tool to extrude the sketch around the z-axis. Then I rotated the teeth 25° and 
+repeated the process for the upper half. 
+
 
 
 <b>
 3d scanning assignment 
 </b>
-
-The following are the key hardware components used in the system:
-
-- Arduino Uno R3: This is a microcontroller board based on the ATmega328P. It was used as the brain of the system to control and communicate with all other components.
-- L9110H Bridge DC Motor Driver: This was used to control the 6V electric geared motor. The L9110H chip allows for direct control of motor direction and speed via inputs from the Arduino.
-- 6V Electric Geared Motor: The DC motor used in this system, which is operated by the L9110H Bridge DC motor driver under the control of the Arduino Uno R3.
-- LED Indicator: Consists of a red and a blue LED. The red LED blinks when the system stops, and the blue LED lights up when the system is moving. These LEDs give a visual indication of the system's operational status.
-- Power Supply: The system is powered by 6 AA batteries.
-- Breadboard: This was used for making connections between components easily, safely, and effectively.
 <br>
 <br>
-I programmed the microcontroller to alter the direction the motor is spinning every few seconds. It turns the motor in one direction for five seconds, then stops for two and then 
-continues to spin the motor in the other direction. I also installed little LED indicators that light up when the motor is spinning or stopping. The red LED blinks while the 
-motor is stopping while the blue LED is on while the motor spins. 
+At first, I wanted to scan a NEMA 23 stepper motor. But this did not turn out as well as I hoped it to, so I tried multiple times. Since the results did
+not get much better, I settled on useing a photogeometry app called Polycam. I used Polycam to scan multiple Items:
 <br>
-<br>
-<b>
-This is the code I used for the Arduino:
-</b>
+- A Nike Alphafly running shoe
+I scanned and 3d printed the 
 
-
-<pre><code>
-  const int A1A = 3;  // define pin 3 for speed
-  const int A1B = 4;  // define pin 4 for direction
-  const int ledPin2 = 12; // LED during movement
-  const int ledPin3 = 13; // LED during pause
-  
-  void setup() {
-    pinMode(A1A, OUTPUT);     // specify these pins as outputs
-    pinMode(A1B, OUTPUT);
-    digitalWrite(A1A, LOW);   // start with the motors off 
-    digitalWrite(A1B, LOW);
-    pinMode(ledPin2, OUTPUT);
-    pinMode(ledPin3, OUTPUT);
-  }
-  
-  void loop() {
-    // start the motor 
-    digitalWrite(A1A, HIGH);   
-    digitalWrite(A1B, LOW);
-    digitalWrite(ledPin2, HIGH);
-    digitalWrite(ledPin3, LOW);
-    delay(5000);              
-  
-
-    digitalWrite(A1A, LOW);   
-    digitalWrite(A1B, LOW);
-    digitalWrite(ledPin2, LOW);
-    for(int i = 0; i < 4; i++) {
-    digitalWrite(ledPin3, HIGH);
-    delay(250);
-    digitalWrite(ledPin3, LOW);
-    delay(250);
-    }
-  
-    // start the motor in opposite direction
-    digitalWrite(A1A, LOW);  
-    digitalWrite(A1B, HIGH);
-    digitalWrite(ledPin2, HIGH);
-    digitalWrite(ledPin3, LOW);
-    delay(5000);    
-  
-    // stop the motor
-    digitalWrite(A1A, LOW);  
-    digitalWrite(A1B, LOW);
-    digitalWrite(ledPin2, LOW);
-    for(int i = 0; i < 4; i++) {
-    digitalWrite(ledPin3, HIGH);
-    delay(250);
-    digitalWrite(ledPin3, LOW);
-    delay(250);
-    }
-  
-  
-  }
-</code></pre>
-
-And here is a video of how the sculpture works: 
-<video with="816" height="480" controls>
-  <source src="IMG_6122.MOV" type="video/mp4">
 </xmp>
 </body>
 
