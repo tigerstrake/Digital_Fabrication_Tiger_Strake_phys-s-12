@@ -60,30 +60,24 @@ and the .step file
 <a href="compliant sensor touch v1.step" download>here.</a>
 <br>
 <br>
+This is how the sensor works:
+<video with="600" height="380" controls>
+  <source src="IMG_6411 2.MOV" type="video/mp4">
+
+
 For the second part of the assignment I decided to use a sensor that would be useful for the final project. To control our rocket
-we need to know where it is located and which direction it is pointing. For this we will use a 6-axis Gyroscope. It can measure acceleration
+we need to know where it is located and which direction it is pointing. For this we will use a 6-axis Gyroscope, the MPU6050. It can measure acceleration
 in all 3 spacial axis aswell as yaw, pitch and roll. 
-This is how the 3d printed model looks like:
+<br>
+This is the sensor we used:
+<br>
+<img src="mpu-6050-6-dof-gyro-accelerometer-imu-3_1_243a42b8-726d-4420-986e-e1fb02d20b7a_1024x.jpg.webp" width="600">
 <br>
 <br>
-Another honorable mention is that I used the 3d printer to upgrade my kinetic sculpture. This iteration now uses heringbone gears. The teeth of 
-heringbone gears are angled inwards, giving them more surface area and helping them stay aligned. 
-<br>
-To create them, I used the Fusion 360 Spur Gear add-in and used the sweep tool to extrude the sketch around the z-axis. Then I rotated the teeth 25° and 
-repeated the process for the upper half. 
-
-
-
-<b>
-3d scanning assignment 
-</b>
+The MPU always knows its relative rotation. This makes it easy to output an accurate measurement to the serial montior in degrees. To ensure that all measurements are accurate, we used an anglefinder and set it multiple values. This is a table showing the acutal angle vs the measured angle. 
 <br>
 <br>
-At first, I wanted to scan a NEMA 23 stepper motor. But this did not turn out as well as I hoped it to, so I tried multiple times. Since the results did
-not get much better, I settled on useing a photogeometry app called Polycam. I used Polycam to scan multiple Items:
-<br>
-- A Nike Alphafly running shoe
-I scanned and 3d printed the 
+<img src="Screenshot 2023-08-06 at 21.37.42.png" width="600">
 
 </xmp>
 </body>

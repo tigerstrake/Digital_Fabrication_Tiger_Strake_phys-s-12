@@ -37,78 +37,57 @@
 <br> 
 <b>
 <font size="5">
-3D Design and 3D printing  
+CNC Milling and Casting/Molding
 </font>
 </b>
 <font size="4">
-In this lesson we learned how to operate the Prusa 3d printers in the lab. We also learned how to 3d scan objects using the revopoint camera and software. Personally I found
-the results of the mobile app "Polycam" much better. This app allows you to use either the integrated LiDAR scanner of your phone (this is especially useful for bigger rooms)
-or photogeometry. Photogeomety uses multiple pictures of an object and digitally stiches them toghether to create a mesh body. This works best for smaller objects. 
-<br>
-The assignment for today was to 3d print something that could not be manufactured using another technique (or at least be very difficult to make using another technique).
-The second part of the assignment was to 3d scan something. 
-<br>
-For the printing assingment I decided to make something useful for my final project, the rocket. I designed a Thrust Vector Control (TVC) mount that relies on the material 
-properties of PLA (Poly lactic acid, a 3d printing filament). It utilizes something called a compliant mechanism. The model can move, because the plastic is not completely 
-ridgit, but rather has some flexibility. 
-<br>
-Here is a picture of the digital 3d modelds:
-<br>
-<img src="Screenshot 2023-07-16 at 21.59.03.png" width="500" height="500">
-<br>
-you can download the file 
-<a href="TVC Tiger v3.step" download>here</a>
+  In this class our task was to design something and make it using CNC. 
+
+As moldmaking is generally used to create multiple copies of something in an affordable and easy way, I decided to manufacture funny paperweights as a Christmas gift for my family and friends! The design of the paperweight would be my face;-)!
+
+For this task I used the Roland SRM 20 CNC machine and machinable wax for casting/molding.
+
+For the scan of my face I used the Polycam scan from last week's assignment and Fusion 360 to model an enclosure for the molding/casting as seen here.
 <br>
 <br>
-This is how the 3d printed model looks like:
-<br>
-<br>
-Another honorable mention is that I used the 3d printer to upgrade my kinetic sculpture. This iteration now uses heringbone gears. The teeth of 
-heringbone gears are angled inwards, giving them more surface area and helping them stay aligned. 
-<br>
-To create them, I used the Fusion 360 Spur Gear add-in and used the sweep tool to extrude the sketch around the z-axis. Then I rotated the teeth 25° and 
-repeated the process for the upper half. 
-
-
-
-<b>
-3d scanning assignment 
-</b>
-<br>
-<br>
-At first, I wanted to scan a NEMA 23 stepper motor. But this did not turn out as well as I hoped it to, so I tried multiple times. Since the results did
-not get much better, I settled on useing a photogeometry app called Polycam. I used Polycam to scan multiple Items:
-<br>
-- A Nike Alphafly running shoe
-I scanned and 3d printed my running shoe. The scan turned out ok, but the bottom of the shoe had some pretty big holes. I ended up 
-fixing this in Fusion 360 later, but next time I will have to make sure to take enough pictures and cover all angles. 
-
-<img src="Screenshot 2023-07-18 at 19.05.58.png" width="500" height="500">
-
-- Me 
-
-I tried to scan me, which turned out to be more difficult than I thought. My first approach was to just try to stand still and 
-move the camera around me. This did not work very well, as I could not reach my back and my arms were in frame. Polycam also 
-did not stich the pictures together correctly as you can see here:
-
-<img src="Screenshot 2023-07-18 at 19.12.53.png" width="500" height="500">
-
-- Me #2 
-
-I tried again to scan me, but this time I used another method. I mounted my phone and took a video of me rotating so that the camera
-would be able to capture every part of my head. Then I exported this video and opened it in Adobe Photoshop. From there I rendered the video
-and used the Photoshop picture sequence tool to export single frames. I uploaded these frames to Polycam and selected the best
-settings. Unfortunately this was the result:
-
-<video with="816" height="480" controls>
-  <source src="4b93b1ee-db87-4a2e-98f5-83f03b1ba6f4.mp4" type="video/mp4">
-
-- Me #3
-
-Finally! This time it worked. I asked a friend to take pictures of my head using the Polycam app. I changed some settings
-compared to my previous attempts and now it worked. I also cropped the scan a bit, because I used this for the CNC milling assignment.
-
 <img src="Screenshot 2023-07-18 at 19.26.08.png" width="500" height="500">
+<br>
+<br>
+An important feature was the barrier I designed around the face in order to hold the silicon mold rubber in place.
+<br>
+<br>
+<img src="Screenshot 2023-08-06 at 20.35.04.png" width="500" height="500">
+<br>
+<br>
+I used the 2.5d pre-set and configured the machine settings accordingly. As an end mill I chose the 1/8“ flat end mill to remove most part of the wax to shape my face roughly. My plan was to use a smaller end mill in a second step. Unfortunately, the wax did not hold on the sacrificial bed layer, so I had to stop the milling. I think the failure was caused by the end mill moving too fast and melting the wax. After it failed, I found molten wax on the end mill:
+<br>
+<br>
+<img src="IMG_6241.JPG" width="500" height="500">
+<br>
+<br>
+I tried again using another location on the board and roughened the surface before putting the wax on it. The milling took about one hour. I was surprised that it took so long as the prototype was fairly small, about the size of my thumb. As the lab closed, I had no time to use a smaller end mill to smooth the model. Generally, the rough milling is faster and the milling with a smaller end mill is slower, but more detailed. I decided to leave my face like that and call it modern art. This is a picture of it next to the cast I made:
+<br>
+<br>
+<img src="IMG_6361.JPG" width="500" height="500">
+<br>
+<br>
+After that we had to create something by molding and casting. I used my modern art tiny mold and filled Oomoo in the negativ. I waited a day to let it cure. The overall result was okay, but too small and too rough. Furthermore, there were air bubbles in both mold and cast.
+
+In order to have multiple and more detailed molds of myself, I printed the same model of my face with my 3d printer from Bamboo Lab in my room at Matthews. I printed an array of fifteen faces. It looked like a creepy Tiger’s face wall when I looked at it. It was much more detailed and quicker as the former CNC model.
+<br>
+<br>
+<img src="IMG_6341.JPG" width="500" height="500">
+<br>
+<br>
+I filled two of the fifteen molds of my face with the silicon rubber, waited a day and was delighted that the accuracy of my face of the new mold was much better. I still had air bubbles in the mold but I was able to trim them. Next time I will try to put the object into a vacuum chamber to get rid of all the
+
+Now it was time to mix the plaster. I did not know the exact ratio of plaster and water, so I tried with trial and error. More water meant more liquid and, thus, the small corners and edges could be filled in a better way. The drying time was pretty short (about 10 minutes). After that I had to free my face from the mold, which worked fine. All in all, I prefer the face from the 3d printed mold rather than the CNC art version. 
+<br>
+<br>
+<img src="IMG_6676 2.jpg" width="500" height="500">
+<br>
+<br>
+  <br>
 
 
 </xmp>
