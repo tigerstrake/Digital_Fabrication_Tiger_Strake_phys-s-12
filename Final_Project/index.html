@@ -5,7 +5,6 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="../style.css" rel="stylesheet">
 
-
 <nav class="navbar navbar-expand-sm navbar-light background-image">
   <div
     style="align-items: center; justify-content: center"
@@ -37,79 +36,60 @@
 <br> 
 <b>
 <font size="5">
-3D Design and 3D printing  
+FINAL PROJECT
 </font>
 </b>
 <font size="4">
-In this lesson we learned how to operate the Prusa 3d printers in the lab. We also learned how to 3d scan objects using the revopoint camera and software. Personally I found
-the results of the mobile app "Polycam" much better. This app allows you to use either the integrated LiDAR scanner of your phone (this is especially useful for bigger rooms)
-or photogeometry. Photogeomety uses multiple pictures of an object and digitally stiches them toghether to create a mesh body. This works best for smaller objects. 
-<br>
-The assignment for today was to 3d print something that could not be manufactured using another technique (or at least be very difficult to make using another technique).
-The second part of the assignment was to 3d scan something. 
-<br>
-For the printing assingment I decided to make something useful for my final project, the rocket. I designed a Thrust Vector Control (TVC) mount that relies on the material 
-properties of PLA (Poly lactic acid, a 3d printing filament). It utilizes something called a compliant mechanism. The model can move, because the plastic is not completely 
-ridgit, but rather has some flexibility. 
-<br>
-Here is a picture of the digital 3d modelds:
-<br>
-<img src="Screenshot 2023-07-16 at 21.59.03.png" width="500" height="500">
-<br>
-you can download the file 
-<a href="TVC Tiger v3.step" download>here</a>
-<br>
-<br>
-This is how the 3d printed model looks like:
-<br>
-<br>
-Another honorable mention is that I used the 3d printer to upgrade my kinetic sculpture. This iteration now uses heringbone gears. The teeth of 
-heringbone gears are angled inwards, giving them more surface area and helping them stay aligned. 
-<br>
-To create them, I used the Fusion 360 Spur Gear add-in and used the sweep tool to extrude the sketch around the z-axis. Then I rotated the teeth 25° and 
-repeated the process for the upper half. 
-
-
-
 <b>
-3d scanning assignment 
+  Choice and objective
+  <br>
 </b>
-<br>
-<br>
-At first, I wanted to scan a NEMA 23 stepper motor. But this did not turn out as well as I hoped it to, so I tried multiple times. Since the results did
-not get much better, I settled on useing a photogeometry app called Polycam. I used Polycam to scan multiple Items:
-<br>
-- A Nike Alphafly running shoe
-I scanned and 3d printed my running shoe. The scan turned out ok, but the bottom of the shoe had some pretty big holes. I ended up 
-fixing this in Fusion 360 later, but next time I will have to make sure to take enough pictures and cover all angles. 
+  The choice of the final project was easy for me. As I am enthusiastic about space and 3d-printing, I chose to design, construct and 3d-print a rocket. In merging my two passions in one project, I knew the outcome would be a success!
+  The major objective of my project was:
+  To build a parametric modular rocket that features thrust vector control.
+  <br>
+  <br>
+  <b>
+  Research process
+  <br>
+</b>
+  I had already build smaller rockets at home and for a school project. I watched YouTube videos on how to build model rockets and researched about real rockets. There is lots of good information on the NASA and the SpaceX website. This showed me the key aspects of a successful rocket. 
+  Design process
+  During the design process I focused on the modularity and parametricity. Another idea I had was to use a design for the thrust vectoring unit that I have never seen before. The design relies on the flexibility of the plastic to move. Another focus of the design process was the weight of the rocket. I wanted it to be as light as possible, but still durable. So I tried various wall thicknesses and found the best. 
+  Controlled, stable flight was another critical point for me. For this I used electrical components such as microcontrollers, gyroscopes and servo motors. 
+  <br>
+  <br>
+  <b>
+  Building process
+  <br>
+</b>
+  For the building process I used my Bambulab 3d-printer, as it is reliable and fast. I printed each module and could then twist-fit them. For the microcontroller, gyroscope and battery I designed a special housing assembly at the bottom of the rocket.
+  
+  <br>
+  <br>
+  <b>
+  Lesson learned:
+  <br>
+</b>
+  1.  Persistance is of essence.
+  Initially, I wanted to send my rocket to the sky on the basis of well timed chemical reactions. As this was not allowed, because it was too dangerous, I literally had to choose another direction for my rocket. I took the opportunity to explore another technical challenge instead of giving it up completely. I then focused on electrical components for stabilization. In the end, it worked very well. I was able to turn a perceived failure into a successful plan B, an outcome I had not thought about initially.
+  
+  2.  Take risks
 
-<img src="Screenshot 2023-07-18 at 19.05.58.png" width="500" height="500">
+  When Hiranya approached me in week 3 and asked if he could join my project, I was skeptical. I did not know him well and did not know if he would contribute in the same way as I was hooked to the project.
+  In the end, I can say that his efforts were genuinely helpful and his different approaches and strengths helped the project to thrive. Without his ideas, the rocket would not have been as complex.
+  3.  To build a good rocket takes lots of time
+  I underestimated the time I spend on the project. I had designed and printed smaller rockets or objects that flew with the 3d-printer at home, but this project was a whole different ballpark for me. I had to print the outer shell different times, as it did not close precisely, the programming of the gyro was demanding as well. 
+  <br>
+  <br>
+  <b>
+  Conclusion:
+  <br>
+</b>
+  To me, my project was a complete success. The next step for me will be to actually let it fly. 
+  
 
-- Me 
-
-I tried to scan me, which turned out to be more difficult than I thought. My first approach was to just try to stand still and 
-move the camera around me. This did not work very well, as I could not reach my back and my arms were in frame. Polycam also 
-did not stich the pictures together correctly as you can see here:
-
-<img src="Screenshot 2023-07-18 at 19.12.53.png" width="500" height="500">
-
-- Me #2 
-
-I tried again to scan me, but this time I used another method. I mounted my phone and took a video of me rotating so that the camera
-would be able to capture every part of my head. Then I exported this video and opened it in Adobe Photoshop. From there I rendered the video
-and used the Photoshop picture sequence tool to export single frames. I uploaded these frames to Polycam and selected the best
-settings. Unfortunately this was the result:
-
-<video with="816" height="480" controls>
-  <source src="4b93b1ee-db87-4a2e-98f5-83f03b1ba6f4.mp4" type="video/mp4">
-
-- Me #3
-
-Finally! This time it worked. I asked a friend to take pictures of my head using the Polycam app. I changed some settings
-compared to my previous attempts and now it worked. I also cropped the scan a bit, because I used this for the CNC milling assignment.
-
-<img src="Screenshot 2023-07-18 at 19.26.08.png" width="500" height="500">
-
+Final video:
 
 </xmp>
 </body>
