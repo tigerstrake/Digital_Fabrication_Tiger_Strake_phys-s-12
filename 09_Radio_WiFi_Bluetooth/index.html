@@ -37,79 +37,151 @@
 <br> 
 <b>
 <font size="5">
-3D Design and 3D printing  
+ESP32 Communication
 </font>
 </b>
 <font size="4">
-In this lesson we learned how to operate the Prusa 3d printers in the lab. We also learned how to 3d scan objects using the revopoint camera and software. Personally I found
-the results of the mobile app "Polycam" much better. This app allows you to use either the integrated LiDAR scanner of your phone (this is especially useful for bigger rooms)
-or photogeometry. Photogeomety uses multiple pictures of an object and digitally stiches them toghether to create a mesh body. This works best for smaller objects. 
 <br>
-The assignment for today was to 3d print something that could not be manufactured using another technique (or at least be very difficult to make using another technique).
-The second part of the assignment was to 3d scan something. 
+The assignment for today was to use multiple ESP32 boards and make them communicate using WiFi or Radio. I chose to use 2 ESP32 dev boards and use ESPnow to send alternating numbers. One ESP sends even numbers and the other one answers odd numbers. 
 <br>
-For the printing assingment I decided to make something useful for my final project, the rocket. I designed a Thrust Vector Control (TVC) mount that relies on the material 
-properties of PLA (Poly lactic acid, a 3d printing filament). It utilizes something called a compliant mechanism. The model can move, because the plastic is not completely 
-ridgit, but rather has some flexibility. 
-<br>
-Here is a picture of the digital 3d modelds:
-<br>
-<img src="Screenshot 2023-07-16 at 21.59.03.png" width="500" height="500">
-<br>
-you can download the file 
-<a href="TVC Tiger v3.step" download>here</a>
-<br>
-<br>
-This is how the 3d printed model looks like:
-<br>
-<br>
-Another honorable mention is that I used the 3d printer to upgrade my kinetic sculpture. This iteration now uses heringbone gears. The teeth of 
-heringbone gears are angled inwards, giving them more surface area and helping them stay aligned. 
-<br>
-To create them, I used the Fusion 360 Spur Gear add-in and used the sweep tool to extrude the sketch around the z-axis. Then I rotated the teeth 25° and 
-repeated the process for the upper half. 
-
-
-
-<b>
-3d scanning assignment 
+This is the code I used for the Arduino. It outputs the MAC adress of the Arduino. 
 </b>
+
+
+
+
+<pre><code style="color: black;">
+  #include "WiFi.h"
+
+  void setup(){
+    Serial.begin(115200);
+    WiFi.mode(WIFI_MODE_STA);
+    Serial.println(WiFi.macAddress());
+  }
+  
+  void loop(){
+    Serial.println(WiFi.macAddress());
+  }
+</code></pre>
 <br>
 <br>
-At first, I wanted to scan a NEMA 23 stepper motor. But this did not turn out as well as I hoped it to, so I tried multiple times. Since the results did
-not get much better, I settled on useing a photogeometry app called Polycam. I used Polycam to scan multiple Items:
+This MAC adress can then be pasted into this code so the other Arduino knows it and can communicate with it. Both scripts have to be executed on both arduinos.
 <br>
-- A Nike Alphafly running shoe
-I scanned and 3d printed my running shoe. The scan turned out ok, but the bottom of the shoe had some pretty big holes. I ended up 
-fixing this in Fusion 360 later, but next time I will have to make sure to take enough pictures and cover all angles. 
-
-<img src="Screenshot 2023-07-18 at 19.05.58.png" width="500" height="500">
-
-- Me 
-
-I tried to scan me, which turned out to be more difficult than I thought. My first approach was to just try to stand still and 
-move the camera around me. This did not work very well, as I could not reach my back and my arms were in frame. Polycam also 
-did not stich the pictures together correctly as you can see here:
-
-<img src="Screenshot 2023-07-18 at 19.12.53.png" width="500" height="500">
-
-- Me #2 
-
-I tried again to scan me, but this time I used another method. I mounted my phone and took a video of me rotating so that the camera
-would be able to capture every part of my head. Then I exported this video and opened it in Adobe Photoshop. From there I rendered the video
-and used the Photoshop picture sequence tool to export single frames. I uploaded these frames to Polycam and selected the best
-settings. Unfortunately this was the result:
-
-<video with="816" height="480" controls>
-  <source src="4b93b1ee-db87-4a2e-98f5-83f03b1ba6f4.mp4" type="video/mp4">
-
-- Me #3
-
-Finally! This time it worked. I asked a friend to take pictures of my head using the Polycam app. I changed some settings
-compared to my previous attempts and now it worked. I also cropped the scan a bit, because I used this for the CNC milling assignment.
-
-<img src="Screenshot 2023-07-18 at 19.26.08.png" width="500" height="500">
-
+<br>
+<br>
+<pre><code style="color: black;">
+  #include <esp_now.h>
+    #include <WiFi.h>
+    
+    
+    // REPLACE WITH THE MAC Address of your receiver.  Code is the same for both boards, with the exception of the following line.
+    uint8_t broadcastAddress[] =  {0x94, 0xB5, 0x55, 0x23, 0xF6, 0xD0};   // this is board no 1.
+    //uint8_t broadcastAddress[] =  {0x24, 0x62, 0xAB, 0xB0, 0x34, 0x8C};  this is board no 2
+    
+    // Variable to store if sending data was successful
+    String success;
+    
+    byte incomingByte;
+    byte outgoingByte;
+    
+    
+    // Callback when data is sent
+    void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) {
+      Serial.print("\r\nLast Packet Send Status:\t");
+      Serial.println(status == ESP_NOW_SEND_SUCCESS ? "Delivery Success" : "Delivery Fail");
+      if (status ==0){
+        success = "Delivery Success :)";
+      }
+      else{
+        success = "Delivery Fail :(";
+      }
+    }
+    
+    // Callback when data is received
+    void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
+      memcpy(&incomingByte, incomingData, sizeof(incomingByte));
+      Serial.print("Bytes received: ");
+      Serial.println(len);
+    }
+    
+    void setup() {
+      // Init Serial Monitor
+      Serial.begin(115200);
+    
+    
+      // Set device as a Wi-Fi Station
+      WiFi.mode(WIFI_STA);
+    
+      // Init ESP-NOW
+      if (esp_now_init() != ESP_OK) {
+        Serial.println("Error initializing ESP-NOW");
+        return;
+      }
+    
+      // Register for a callback function that will be called when data is received
+      esp_now_register_send_cb(OnDataSent);
+    
+      // Register peer
+      esp_now_peer_info_t peerInfo;
+      memset(&peerInfo, 0, sizeof(peerInfo));
+      memcpy(peerInfo.peer_addr, broadcastAddress, 6);
+      peerInfo.channel = 0;  
+      peerInfo.encrypt = false;
+    
+      // Add peer        
+      if (esp_now_add_peer(&peerInfo) != ESP_OK){
+        Serial.println("Failed to add peer");
+        return;
+      }
+      // Register for a callback function that will be called when data is received
+      esp_now_register_recv_cb(OnDataRecv);
+    }
+    bool isPrime(int num) {
+      if(num < 2) 
+        return false;
+      for(int i = 2; i <= sqrt(num); i++) {
+        if(num % i == 0)
+          return false;
+      }
+      return true;
+    }
+    
+    void loop() {
+      if(Serial.available() > 0) {
+        int incomingByte = Serial.read();
+        Serial.println(incomingByte);
+        int outgoingByte = incomingByte;
+        do {
+          outgoingByte++;
+        } while(!isPrime(outgoingByte));
+        Serial.println(outgoingByte);
+      }
+    }
+    
+      // Send message via ESP-NOW
+      esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *) &outgoingByte, sizeof(outgoingByte));
+    
+      if (result == ESP_OK) {
+        Serial.println("Sent with success");
+      }
+      else {
+        Serial.println("Error sending the data");
+      }
+    
+     delay(1000);
+    
+    }
+</code></pre>
+<br>
+<br>
+This is the output of the code in the Serial Monitor:
+<br>
+<img src="Screenshot 2023-08-07 at 09.19.35.png" width="900">
+<br>
+<br>
+And this is the output of the other Arduino:
+<br>
+<img src="Screenshot 2023-08-07 at 09.19.35.png" width="900">
 
 </xmp>
 </body>
