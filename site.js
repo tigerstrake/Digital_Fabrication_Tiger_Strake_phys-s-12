@@ -285,7 +285,7 @@
         if (text && text.toLowerCase() !== meta.page.title.toLowerCase()) {
           subtitle = text;
         }
-        if (/^week\\s*\\d+/i.test(text) || /^final project$/i.test(text)) {
+        if (/^week\s*\d+/i.test(text) || /^final project$/i.test(text)) {
           firstHeading.parentNode.removeChild(firstHeading);
         }
       }
