@@ -179,6 +179,27 @@ body.nav-open {
   margin: 1.3rem auto 2.1rem;
 }
 
+.project-header {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: linear-gradient(180deg, var(--panel-2) 0%, var(--panel) 100%);
+  padding: 0.9rem 1rem;
+  margin-bottom: 0.7rem;
+  box-shadow: var(--shadow);
+}
+
+.project-title {
+  margin: 0;
+  line-height: 1.15;
+  font-size: clamp(1.25rem, 2.2vw, 1.86rem);
+}
+
+.project-subtitle {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
 .hero-panel,
 .hero,
 .profile,
@@ -269,6 +290,7 @@ body.nav-open {
   grid-template-columns: 1.1fr 1fr;
   gap: 1rem;
   align-items: stretch;
+  max-width: 100%;
 }
 
 .featured-media {
@@ -277,6 +299,7 @@ body.nav-open {
   border: 1px solid var(--border);
   min-height: 220px;
   max-height: 340px;
+  width: 100%;
 }
 
 .featured-media img {
@@ -378,6 +401,11 @@ body.nav-open {
   background: var(--panel-2);
   box-shadow: var(--shadow);
   transition: transform 170ms ease, box-shadow 170ms ease, border-color 170ms ease;
+}
+
+.assignment-card[hidden],
+.assignment-card.is-hidden {
+  display: none !important;
 }
 
 .assignment-card:hover,
@@ -496,8 +524,8 @@ body.nav-open {
 .assignment-content h6 {
   color: var(--text);
   line-height: 1.24;
-  margin-top: 1.18rem;
-  margin-bottom: 0.55rem;
+  margin-top: 0.92rem;
+  margin-bottom: 0.42rem;
   scroll-margin-top: 96px;
 }
 
@@ -527,8 +555,12 @@ body.nav-open {
 }
 
 .assignment-content p {
-  margin: 0.45rem 0 0.65rem;
-  line-height: 1.58;
+  margin: 0.28rem 0 0.52rem;
+  line-height: 1.5;
+}
+
+.assignment-content > *:first-child {
+  margin-top: 0 !important;
 }
 
 .assignment-content a {

@@ -132,6 +132,14 @@
     return -1;
   }
 
+  function getCurrentPageMeta() {
+    var idx = getCurrentPageIndex();
+    if (idx === -1) {
+      return null;
+    }
+    return { index: idx, page: PAGES[idx] };
+  }
+
   function relativePath(from, to) {
     var fromParts = from.split("/");
     var toParts = to.split("/");
@@ -261,6 +269,79 @@
     } else if (article.classList.contains("markdown-fallback")) {
       article.parentNode.insertBefore(h1, article);
     }
+  }
+
+  function insertProjectHeader(target) {
+    var meta = getCurrentPageMeta();
+    if (!meta || document.querySelector(".project-header")) {
+      return;
+    }
+
+    var subtitle = "";
+    if (target.classList.contains("assignment-content")) {
+      var firstHeading = target.querySelector("h1, h2, h3, h4");
+      if (firstHeading) {
+        var text = (firstHeading.textContent || "").replace(/#$/, "").trim();
+        if (text && text.toLowerCase() !== meta.page.title.toLowerCase()) {
+          subtitle = text;
+        }
+        if (/^week\\s*\\d+/i.test(text) || /^final project$/i.test(text)) {
+          firstHeading.parentNode.removeChild(firstHeading);
+        }
+      }
+    }
+
+    if (!subtitle) {
+      subtitle = meta.index === PAGES.length - 1 ? "Capstone build documentation" : "Weekly project documentation";
+    }
+
+    var section = document.createElement("section");
+    section.className = "project-header";
+
+    var h1 = document.createElement("h1");
+    h1.className = "project-title";
+    h1.textContent = meta.page.title;
+    section.appendChild(h1);
+
+    var p = document.createElement("p");
+    p.className = "project-subtitle";
+    p.textContent = subtitle;
+    section.appendChild(p);
+
+    target.parentNode.insertBefore(section, target);
+  }
+
+  function compactRenderedContent(article) {
+    if (!article || !article.classList.contains("assignment-content")) {
+      return;
+    }
+
+    each(article.querySelectorAll("p"), function (p) {
+      var hasMedia = p.querySelector("img, video, iframe, pre, code, table, ul, ol, blockquote");
+      var txt = (p.textContent || "").replace(/\u00a0/g, " ").trim();
+      if (!hasMedia && !txt) {
+        p.parentNode.removeChild(p);
+      }
+    });
+
+    each(article.querySelectorAll("*"), function (el) {
+      var run = 0;
+      var node = el.firstChild;
+      while (node) {
+        var next = node.nextSibling;
+        if (node.nodeType === 1 && node.tagName === "BR") {
+          run += 1;
+          if (run > 1) {
+            el.removeChild(node);
+          }
+        } else if (node.nodeType === 3 && !(node.nodeValue || "").trim()) {
+          // keep whitespace nodes, do not reset run
+        } else {
+          run = 0;
+        }
+        node = next;
+      }
+    });
   }
 
   function wrapContentWithToc(article, toc) {
@@ -411,6 +492,11 @@
 
         card.hidden = !show;
         if (show) {
+          card.classList.remove("is-hidden");
+        } else {
+          card.classList.add("is-hidden");
+        }
+        if (show) {
           visible += 1;
         }
       });
@@ -493,13 +579,16 @@
 
     if (article.classList.contains("markdown-fallback")) {
       addPageHeadingIfMissing(article);
+      insertProjectHeader(article);
       return;
     }
     if (!article.classList.contains("assignment-content")) {
       return;
     }
 
+    compactRenderedContent(article);
     addPageHeadingIfMissing(article);
+    insertProjectHeader(article);
     var headings = addHeadingAnchors(article);
     var toc = buildToc(headings);
     wrapContentWithToc(article, toc);
