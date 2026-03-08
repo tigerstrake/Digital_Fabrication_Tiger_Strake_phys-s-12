@@ -1,54 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<title> Tiger Strake Digital Fabrication</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="../style.css" rel="stylesheet">
-
-
-<nav class="navbar navbar-expand-sm navbar-light background-image">
-  <div
-    style="align-items: center; justify-content: center"
-    class="container-fluid"
-  >
-    <h3 class="nav-title"> PHYS-S-12: Intro to Digital Fabrication</h3>
-    <div class="navbar-nav">
-      <h4></h4>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tiger Strake Digital Fabrication</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../style.css" rel="stylesheet">
+</head>
+<body class="site-page">
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title">PHYS-S-12: Intro to Digital Fabrication</h1>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../Final_Project/index.html">Final Project</a>
+        <a href="https://nathanmelenbrink.github.io/intro-dig-fab/index.html">My Class</a>
+        <a href="../about.html">About</a>
+      </nav>
     </div>
-  </div>
-</nav>
-<nav class="navbar navbar-expand-sm navbar-light background-image">
-  <div class="container-fluid d-flex justify-content-between">
-      <h4><a class="nav-link" href="../index.html" style="color:#EBF2FA;">Home</a></h4>
-      <h4><a class="nav-link" href="Final_Project/index.html" style="color:#EBF2FA;">Final Project</a></h4>
-      <h4><a class="nav-link" href="https://nathanmelenbrink.github.io/intro-dig-fab/index.html" style="color:#EBF2FA;">My class</a></h4>
-      <h4><a class="nav-link" href="../about.html" style="color:#EBF2FA;">About</a></h4>
-  </div>
-</nav>
-</html>
+  </header>
 
-
-<body>
-
-  <style>
-    body {
-      background-color: #486484;
-    }
-  </style>
-
-
-<xmp style="display:none;">
+  <main class="page-content">
+    <xmp style="display:none;">
 <br> 
 
 #### Week 2: Electric motors, hand tools and soldering
 <font size="4">
 In this session we talked about three major topics: electric motors, hand tools and soldering. So for this weeks assignment we have to apply a bit 
-of all the knowledge we gained. The task is to build a kinematic sculpture and include circutry. 
+of all the knowledge we gained. The task is to build a kinematic sculpture and include circuitry. 
 <br>
 I decided to build a structure that moves small table tennis balls in mechanically programmable semi circles from side to side. 
-My idea was to incorporate a gear reduction system that increases the torque output of the small electric motor and turns an octaganol
+My idea was to incorporate a gear reduction system that increases the torque output of the small electric motor and turns an octagonal
 camshaft. On the camshaft are small half ellipses that move the semi circles up and down. Since there are multiple of these semi circles they can move
-in mesmerizing ways e.g. in a sine curve. The ellipses can be moved by hand so the design can be changed very easily. A video of the working sculpture is on the <a href="/04_microcontroller_programming/index.html">microcontroller programming</a> page, since I incorporated 
+in mesmerizing ways e.g. in a sine curve. The ellipses can be moved by hand so the design can be changed very easily. A video of the working sculpture is on the <a href="../04_microcontroller_programming/index.html">microcontroller programming</a> page, since I incorporated 
 an Arduino to control the movement of the sculpture.
 
 <br>
@@ -57,7 +41,7 @@ an Arduino to control the movement of the sculpture.
 At first I wanted to laser cut most of the parts, but since I had little to no time to access the laser cutter until the assignment was due,
 I decided to 3D print the majority of the parts. 
 Here is a timelapse of some of the feet getting printed!: 
-<video with="816" height="480" controls>
+<video width="816" height="480" controls>
   <source src="IMG_0001.mp4" type="video/mp4">
 <br>
 <br>
@@ -67,22 +51,17 @@ Here is a video of the CAD modelling process:
 
 <br>
 
-<video with="816" height="480" controls>
+<video width="816" height="480" controls>
   <source src="Screen Recording 2023-07-03 at 21.16.09.mp4" type="video/mp4">
   <br>
 
 And here is a picture of the sculpture being assembled 
 <br>
 
-<img src="assembly.jpg" width="816" height="480">
+<img src="assembly.jpg" width="816" height="480"></xmp>
+  </main>
 
-
-
-
-</xmp>
+  <script src="../strapdown.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
-<script src="../strapdown.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
-
 </html>

@@ -1,45 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<title> Tiger Strake Digital Fabrication</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="../style.css" rel="stylesheet">
-
-
-<nav class="navbar navbar-expand-sm navbar-light background-image">
-  <div
-    style="align-items: center; justify-content: center"
-    class="container-fluid"
-  >
-    <h3 class="nav-title"> PHYS-S-12: Intro to Digital Fabrication</h3>
-    <div class="navbar-nav">
-      <h4></h4>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tiger Strake Digital Fabrication</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../style.css" rel="stylesheet">
+</head>
+<body class="site-page">
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title">PHYS-S-12: Intro to Digital Fabrication</h1>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../Final_Project/index.html">Final Project</a>
+        <a href="https://nathanmelenbrink.github.io/intro-dig-fab/index.html">My Class</a>
+        <a href="../about.html">About</a>
+      </nav>
     </div>
-  </div>
-</nav>
-<nav class="navbar navbar-expand-sm navbar-light background-image">
-  <div class="container-fluid d-flex justify-content-between">
-      <h4><a class="nav-link" href="../index.html" style="color:#EBF2FA;">Home</a></h4>
-      <h4><a class="nav-link" href="Final_Project/index.html" style="color:#EBF2FA;">Final Project</a></h4>
-      <h4><a class="nav-link" href="https://nathanmelenbrink.github.io/intro-dig-fab/index.html" style="color:#EBF2FA;">My class</a></h4>
-      <h4><a class="nav-link" href="../about.html" style="color:#EBF2FA;">About</a></h4>
-  </div>
-</nav>
-</html>
+  </header>
 
-<body>
-  <style>
-    body {
-      background-color: #486484;
-    }
-  </style>
-
-<xmp style="display:none;">
+  <main class="page-content">
+    <xmp style="display:none;">
 <br> 
 
 #### Week 2: Laser cutting and 3D modelling 
 <font size="4">
-Today we learned how to use a laser cutter and a vinyl plotter. We also made a quick workshop on how to use 3d modelling software, in this case Blender and Fusion 360. 
+Today we learned how to use a laser cutter and a vinyl plotter. We also made a quick workshop on how to use 3D modelling software, in this case Blender and Fusion 360. 
 Our task during classes was to design and laser cut a press-fit structure, that uses multiple cardboard pieces and can be assembled in multiple different ways. We had to 
 take into consideration, that the so-called kerf of the laser takes away a bit more material than specified in the design. With all that in mind I designed my structure. 
 It is composed of triangles with small notches at all three end which interlock with each other. Here is a picture of the CAD drawing of the triangles. 
@@ -54,7 +41,7 @@ I assembled a small sphere with them which you can see here:
  <br>
  
 The second assignment of today was to model two household items in CAD. I decided to model my (very cool) space mouse and a water bottle. (A space mouse is a computer mouse 
-that allows you to freely move in 3d space.) I decided to choose two items that require different methods to model. (e.g., The mouse utilizes the “revolve around axis” tool 
+that allows you to freely move in 3D space.) I decided to choose two items that require different methods to model. (e.g., The mouse utilizes the “revolve around axis” tool 
 whereas the bottles utilizes the “shell”, “thread” and “loft” tool.)
 <font size="5">
 <br>
@@ -88,7 +75,7 @@ picture from above and one from a side.)</li>
 <img src="Screenshot6.png" width="816" height="480">
 <img src="Screenshot7.png" width="816" height="480">
 <br>
-</li>After that I split the model some more and gave every single section a different material. (e.g. rubber and plastic for the top part, aluminum for the bottom etc.)</li>
+</li>After that I split the model further and assigned different materials to each section (for example, rubber and plastic for the top part and aluminum for the bottom).</li>
 <img src="Screenshot9.png" width="816" height="480">
 <br>
 </li>Finally, I rendered the whole model in the Fusion 360 rendering menu and exported it. </li>
@@ -97,7 +84,7 @@ picture from above and one from a side.)</li>
 <br>
 </ul>
 Here is a video on the process: 
-<video with="816" height="480" controls>
+<video width="816" height="480" controls>
   <source src="Space_Mouse_Modelling.mov" type="video/mp4">
 <br>
 <br>
@@ -135,7 +122,7 @@ And this is how I modelled the bottle:
 <br>
 <br>
 Here is a video on the process: 
-<video with="816" height="480" controls>
+<video width="816" height="480" controls>
   <source src="Bottle_Screenrec.mov" type="video/mp4">
 <br>
 <br>
@@ -157,22 +144,20 @@ Cutting a Benchy from Cardboard
 </b>
 <br>
 <br>
-Another project I did was this laser cut Benchy. A Benchy is commonly used as a benchmark for 3d printers and since I like them I decided to cut one out of
+Another project I did was this laser cut Benchy. A Benchy is commonly used as a benchmark for 3D printers and since I like them I decided to cut one out of
 cardboard using the laser cutter. 
   <br>
-There are multiple ways to do this. You can stack layers of cardboard ontop of eachother, next to each other, fold them or use interlocking slices. I decided to
+There are multiple ways to do this. You can stack layers of cardboard on top of each other, next to each other, fold them or use interlocking slices. I decided to
 use interlocking slices, because this is a relatively material efficient and it looks cool! 
-Instead of manually drawing all these slices, I found an application called "Slicer for Fusion 360". It is a discontiued (and buggy ;)) Software that allows you to upload 3d models 
+Instead of manually drawing all these slices, I used an application called "Slicer for Fusion 360". It is discontinued software, but it still allowed me to upload 3D models 
 and slice them into laser-cuttable pieces that interlock. 
 <br>
 Here is a picture of what the model looks like:
 
-<IMG SRC="IMG_5864.JPG" width="816" height="480">
+<IMG SRC="IMG_5864.JPG" width="816" height="480"></xmp>
+  </main>
 
-</xmp>
+  <script src="../strapdown.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
-<script src="../strapdown.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
-
 </html>
