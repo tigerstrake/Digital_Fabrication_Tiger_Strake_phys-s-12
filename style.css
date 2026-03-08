@@ -7,6 +7,9 @@
   --border: #d8e0ec;
   --accent: #0f62fe;
   --accent-dark: #0b4cc2;
+  --code-bg: #0b1220;
+  --code-bg-soft: #101a30;
+  --code-border: #253553;
   --shadow: 0 12px 28px rgba(15, 23, 42, 0.09);
 }
 
@@ -146,6 +149,7 @@ body.site-page {
   border-radius: 14px;
   overflow: hidden;
   box-shadow: var(--shadow);
+  position: relative;
   transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
 }
 
@@ -162,10 +166,18 @@ body.site-page {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+  transition: transform 280ms ease;
+  transform-origin: center;
+}
+
+.assignment-card:hover img,
+.assignment-card:focus-visible img {
+  transform: scale(1.08);
 }
 
 .assignment-card .card-body {
   padding: 0.88rem 0.9rem 0.95rem;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
 }
 
 .assignment-card h3 {
@@ -204,12 +216,21 @@ body.site-page {
   margin-bottom: 0.55rem;
   color: #0f172a;
   line-height: 1.25;
+  letter-spacing: 0.01em;
 }
 
 .assignment-content p,
 .assignment-content li,
 .assignment-content blockquote {
   color: #1f2937;
+}
+
+.assignment-content blockquote {
+  margin: 0.9rem 0;
+  padding: 0.7rem 0.9rem;
+  background: #f3f7ff;
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
 }
 
 .assignment-content ul,
@@ -239,15 +260,39 @@ body.site-page {
 }
 
 .assignment-content pre {
+  position: relative;
   overflow-x: auto;
-  background: #0f172a;
-  border: 1px solid #0b1222;
+  background:
+    linear-gradient(180deg, var(--code-bg-soft) 0%, var(--code-bg) 100%);
+  border: 1px solid var(--code-border);
   border-radius: 10px;
-  padding: 0.8rem;
+  padding: 2rem 0.9rem 0.9rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
-.assignment-content pre code,
+.assignment-content pre::before {
+  content: "Code";
+  position: absolute;
+  top: 0.45rem;
+  left: 0.7rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9fb5db;
+}
+
 .assignment-content code {
+  background: #e9eef9;
+  border: 1px solid #d4ddf0;
+  border-radius: 6px;
+  padding: 0.08rem 0.35rem;
+  color: #1b2844;
+}
+
+.assignment-content pre code {
+  background: transparent;
+  border: 0;
+  padding: 0;
   color: #e5efff;
 }
 

@@ -1,6 +1,13 @@
 (function () {
   "use strict";
 
+  function renderRawFallback(source, raw) {
+    var pre = document.createElement("pre");
+    pre.className = "markdown-fallback";
+    pre.textContent = raw;
+    source.replaceWith(pre);
+  }
+
   function unwrapDeprecatedTags(root) {
     root.querySelectorAll("font").forEach(function (fontEl) {
       var parent = fontEl.parentNode;
@@ -22,29 +29,30 @@
     var raw = source.textContent || "";
 
     if (window.marked && raw.trim().length > 0) {
-      marked.setOptions({
-        gfm: true,
-        breaks: true,
-        mangle: false,
-        headerIds: false
-      });
+      try {
+        marked.setOptions({
+          gfm: true,
+          breaks: true
+        });
 
-      var article = document.createElement("article");
-      article.className = "assignment-content";
-      article.innerHTML = marked.parse(raw);
-      source.replaceWith(article);
-      unwrapDeprecatedTags(article);
+        var article = document.createElement("article");
+        article.className = "assignment-content";
+        article.innerHTML = marked.parse(raw);
+        source.replaceWith(article);
+        unwrapDeprecatedTags(article);
 
-      article.querySelectorAll('a[href^="http"]').forEach(function (link) {
-        link.target = "_blank";
-        link.rel = "noopener noreferrer";
-      });
-
-      return;
+        article.querySelectorAll('a[href^="http"]').forEach(function (link) {
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+        });
+        return;
+      } catch (err) {
+        renderRawFallback(source, raw);
+        return;
+      }
     }
 
     // Fallback: always show raw content if markdown parser is unavailable.
-    source.className = "markdown-fallback";
-    source.style.display = "block";
+    renderRawFallback(source, raw);
   });
 })();
