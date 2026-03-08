@@ -6,7 +6,7 @@
   <title>Tiger Strake Digital Fabrication</title>
   <link href="style.css" rel="stylesheet">
 </head>
-<body class="site-page">
+<body class="site-page home-page">
   <header class="site-header">
     <div class="header-inner">
       <h1 class="site-title">PHYS-S-12: Intro to Digital Fabrication</h1>
@@ -20,113 +20,169 @@
   </header>
 
   <main class="page-content">
-    <section class="hero">
-      <h2>Course Portfolio</h2>
-      <p>
-        A complete archive of weekly work from PHYS-S-12, including CAD, electronics, programming,
-        machine building, fabrication experiments, and the final TVC rocket project.
-      </p>
+    <section class="hero-panel" id="top">
+      <div>
+        <span class="hero-eyebrow">Digital Fabrication Portfolio</span>
+        <h2 class="hero-title">Designing, Building, and Testing Across Hardware and Software</h2>
+        <p class="hero-copy">
+          This site documents my complete PHYS-S-12 workflow, from early concept sketches to integrated
+          mechatronics and fabrication outcomes. Every week links to the full build log, media, and technical details.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="Final_Project/index.html">View Final Project</a>
+          <a class="btn" href="#archive">Browse Weekly Archive</a>
+        </div>
+      </div>
+      <div class="hero-facts" aria-label="Portfolio stats">
+        <div class="fact"><strong>12</strong><span>Major project pages</span></div>
+        <div class="fact"><strong>11</strong><span>Weekly technical logs</span></div>
+        <div class="fact"><strong>Multi-modal</strong><span>CAD, firmware, CNC, electronics</span></div>
+        <div class="fact"><strong>1</strong><span>Integrated final rocket system</span></div>
+      </div>
+    </section>
+
+    <section class="featured-panel">
+      <a class="featured-media" href="Final_Project/index.html" aria-label="Open final project">
+        <img src="whole_model_final_v3_2023-Aug-03_03-43-32AM-000_CustomizedView5102097637.png" alt="Final rocket project render">
+      </a>
+      <div>
+        <h2>Featured: Modular TVC Rocket</h2>
+        <p>
+          The final project combines parametric 3D design, electronics integration, and iterative prototyping into a
+          thrust-vector-control rocket platform. It is the centerpiece of this portfolio.
+        </p>
+        <div class="card-tags" style="margin-bottom: 0.8rem;">
+          <span class="tag">Final Project</span>
+          <span class="tag">3D Printing</span>
+          <span class="tag">Control Systems</span>
+          <span class="tag">Embedded</span>
+        </div>
+        <a class="btn btn-primary" href="Final_Project/index.html">Read Full Case Study</a>
+      </div>
+    </section>
+
+    <section class="controls" id="archive" aria-label="Archive controls">
+      <div class="controls-top">
+        <h2>Weekly Archive</h2>
+        <p id="results-count">0 projects shown</p>
+      </div>
+      <div class="search-wrap">
+        <input id="project-search" type="search" placeholder="Search by week, topic, tool, or keyword..." aria-label="Search projects">
+      </div>
+      <div class="filter-chips" role="group" aria-label="Filter projects by topic">
+        <button class="filter-chip active" data-filter="all" type="button">All</button>
+        <button class="filter-chip" data-filter="cad" type="button">CAD</button>
+        <button class="filter-chip" data-filter="electronics" type="button">Electronics</button>
+        <button class="filter-chip" data-filter="manufacturing" type="button">Manufacturing</button>
+        <button class="filter-chip" data-filter="programming" type="button">Programming</button>
+        <button class="filter-chip" data-filter="systems" type="button">Systems</button>
+      </div>
     </section>
 
     <section class="assignment-grid" aria-label="Assignments">
-      <a class="assignment-card" href="01_intro/index.html">
-        <img src="thumbnail.png" alt="Introduction and brainstorming thumbnail">
+      <a class="assignment-card" href="01_intro/index.html" data-title="Week 1 Introduction and Brainstorming" data-tags="concepts planning systems robotics">
+        <div class="card-image"><img src="thumbnail.png" alt="Introduction and brainstorming thumbnail"></div>
         <div class="card-body">
           <h3>01 Introduction and Brainstorming</h3>
-          <p>Project direction and first concept sketches.</p>
+          <p>Project direction, concept exploration, and first-system ideas.</p>
+          <div class="card-tags"><span class="tag">Week 1</span><span class="tag">Planning</span><span class="tag">Systems</span></div>
         </div>
       </a>
 
-      <a class="assignment-card" href="02_laser_cutting/index.html">
-        <img src="press-fit_triangles.JPG" alt="Laser cut press-fit triangles">
+      <a class="assignment-card" href="02_laser_cutting/index.html" data-title="Week 2 2D design and cutting laser cad modelling" data-tags="cad manufacturing laser">
+        <div class="card-image"><img src="press-fit_triangles.JPG" alt="Laser cut press-fit triangles"></div>
         <div class="card-body">
           <h3>02 2D Design and Cutting</h3>
-          <p>Press-fit structures and CAD modeling exercises.</p>
+          <p>Press-fit design, CAD workflows, and fabrication constraints.</p>
+          <div class="card-tags"><span class="tag">Week 2</span><span class="tag">CAD</span><span class="tag">Laser</span></div>
         </div>
       </a>
 
-      <a class="assignment-card" href="03_Handtools_&_Electric_Motors/index.html">
-        <img src="IMG_5995.JPG" alt="Hand tools and motor build">
+      <a class="assignment-card" href="03_Handtools_&_Electric_Motors/index.html" data-title="Week 3 electronics tools motor mechanics" data-tags="electronics manufacturing systems">
+        <div class="card-image"><img src="IMG_5995.JPG" alt="Hand tools and motor build"></div>
         <div class="card-body">
           <h3>03 Electronics and Tools</h3>
-          <p>Kinematic sculpture design, fabrication, and assembly.</p>
+          <p>Kinematic sculpture mechanics, assembly, and motor-driven structure.</p>
+          <div class="card-tags"><span class="tag">Week 3</span><span class="tag">Electronics</span><span class="tag">Mechanics</span></div>
         </div>
       </a>
 
-      <a class="assignment-card" href="04_microcontroller_programming/index.html">
-        <img src="sketch for microcontroller.png" alt="Microcontroller sketch">
+      <a class="assignment-card" href="04_microcontroller_programming/index.html" data-title="Week 4 microcontroller arduino programming control" data-tags="programming electronics systems">
+        <div class="card-image"><img src="sketch for microcontroller.png" alt="Microcontroller sketch"></div>
         <div class="card-body">
           <h3>04 Microcontroller Programming</h3>
-          <p>Arduino motor control, direction switching, and LED states.</p>
+          <p>Arduino control logic, motor direction switching, and state signaling.</p>
+          <div class="card-tags"><span class="tag">Week 4</span><span class="tag">Programming</span><span class="tag">Control</span></div>
         </div>
       </a>
 
-      <a class="assignment-card" href="05_3D_Printing/index.html">
-        <img src="TVC_Tiger_2023-Jul-17_01-36-58AM-000_CustomizedView36845387542.png" alt="3D printed rocket part render">
+      <a class="assignment-card" href="05_3D_Printing/index.html" data-title="Week 5 3D design printing tvc parametric" data-tags="cad manufacturing systems">
+        <div class="card-image"><img src="TVC_Tiger_2023-Jul-17_01-36-58AM-000_CustomizedView36845387542.png" alt="3D printed rocket part render"></div>
         <div class="card-body">
           <h3>05 3D Design and Printing</h3>
-          <p>Parametric models and printed hardware iterations.</p>
+          <p>Parametric iterations, compliant mechanisms, and rapid prototyping.</p>
+          <div class="card-tags"><span class="tag">Week 5</span><span class="tag">3D Printing</span><span class="tag">CAD</span></div>
         </div>
       </a>
 
-      <a class="assignment-card" href="06_input_devices/index.html">
-        <img src="mpu-6050-6-dof-gyro-accelerometer-imu-3_1_243a42b8-726d-4420-986e-e1fb02d20b7a_1024x.jpg.webp" alt="MPU 6050 input sensor module">
+      <a class="assignment-card" href="06_input_devices/index.html" data-title="Week 6 input devices sensors gyroscope mpu6050" data-tags="electronics programming systems">
+        <div class="card-image"><img src="mpu-6050-6-dof-gyro-accelerometer-imu-3_1_243a42b8-726d-4420-986e-e1fb02d20b7a_1024x.jpg.webp" alt="MPU 6050 input sensor module"></div>
         <div class="card-body">
           <h3>06 Electronic Input Devices</h3>
-          <p>Sensor exploration and responsive interaction experiments.</p>
+          <p>Custom sensing and off-the-shelf IMU integration for system feedback.</p>
+          <div class="card-tags"><span class="tag">Week 6</span><span class="tag">Sensors</span><span class="tag">Electronics</span></div>
         </div>
       </a>
 
-      <a class="assignment-card" href="07_output_devices/index.html">
-        <img src="Screenshot 2023-08-06 at 18.48.35.png" alt="Output devices screenshot">
+      <a class="assignment-card" href="07_output_devices/index.html" data-title="Week 7 output devices oled oscilloscope" data-tags="electronics programming">
+        <div class="card-image"><img src="Screenshot 2023-08-06 at 18.48.35.png" alt="Output devices screenshot"></div>
         <div class="card-body">
           <h3>07 Electronic Output Devices</h3>
-          <p>Actuators, indicators, and output control workflows.</p>
+          <p>Output interfaces, display integration, and instrumentation checks.</p>
+          <div class="card-tags"><span class="tag">Week 7</span><span class="tag">Outputs</span><span class="tag">Electronics</span></div>
         </div>
       </a>
 
-      <a class="assignment-card" href="08_CNC_Milling_Molding_Casting/index.html">
-        <img src="SRM-20.jpg" alt="CNC milling machine">
+      <a class="assignment-card" href="08_CNC_Milling_Molding_Casting/index.html" data-title="Week 8 cnc milling molding casting cam" data-tags="manufacturing cad">
+        <div class="card-image"><img src="SRM-20.jpg" alt="CNC milling machine"></div>
         <div class="card-body">
           <h3>08 CNC Milling, Molding, and Casting</h3>
-          <p>CAM setup, machining, mold prep, and casting.</p>
+          <p>CAM setup, machining iterations, mold making, and cast results.</p>
+          <div class="card-tags"><span class="tag">Week 8</span><span class="tag">CNC</span><span class="tag">Manufacturing</span></div>
         </div>
       </a>
 
-      <a class="assignment-card" href="09_Radio_WiFi_Bluetooth/index.html">
-        <img src="71xM7j0SJSL.jpg" alt="Wireless communication hardware">
+      <a class="assignment-card" href="09_Radio_WiFi_Bluetooth/index.html" data-title="Week 9 esp32 communication wifi bluetooth radio" data-tags="programming electronics systems">
+        <div class="card-image"><img src="71xM7j0SJSL.jpg" alt="Wireless communication hardware"></div>
         <div class="card-body">
           <h3>09 ESP32 Communication</h3>
-          <p>Radio, Wi-Fi, and Bluetooth connectivity work.</p>
+          <p>Inter-board communication workflows with wireless protocols.</p>
+          <div class="card-tags"><span class="tag">Week 9</span><span class="tag">ESP32</span><span class="tag">Networking</span></div>
         </div>
       </a>
 
-      <a class="assignment-card" href="10_Mashine_Building/index.html">
-        <img src="Nema-17-Bipolar-45Ncm-64oz-in-2A-42x42x40mm-4-Wires-w-1m-Cable-Connector-1100x1100.jpg" alt="Nema 17 motor for machine building">
+      <a class="assignment-card" href="10_Mashine_Building/index.html" data-title="Week 10 machine building robotics steppers" data-tags="systems manufacturing electronics">
+        <div class="card-image"><img src="Nema-17-Bipolar-45Ncm-64oz-in-2A-42x42x40mm-4-Wires-w-1m-Cable-Connector-1100x1100.jpg" alt="Nema 17 motor for machine building"></div>
         <div class="card-body">
           <h3>10 Machine Building</h3>
-          <p>Integrated mechanics, structure, and control concepts.</p>
+          <p>System-level mechanical integration and robotic architecture study.</p>
+          <div class="card-tags"><span class="tag">Week 10</span><span class="tag">Robotics</span><span class="tag">Systems</span></div>
         </div>
       </a>
 
-      <a class="assignment-card" href="11_Wildcard/index.html">
-        <img src="Screenshot 2023-08-06 at 19.00.59.png" alt="Wildcard project screenshot">
+      <a class="assignment-card" href="11_Wildcard/index.html" data-title="Week 11 wildcard pcb waterjet fabrication" data-tags="manufacturing electronics cad">
+        <div class="card-image"><img src="Screenshot 2023-08-06 at 19.00.59.png" alt="Wildcard project screenshot"></div>
         <div class="card-body">
           <h3>11 Water Jet and PCB Manufacturing</h3>
-          <p>Wildcard fabrication workflows and process experiments.</p>
-        </div>
-      </a>
-
-      <a class="assignment-card featured" href="Final_Project/index.html">
-        <img src="whole_model_final_v3_2023-Aug-03_03-43-32AM-000_CustomizedView5102097637.png" alt="Final rocket project render">
-        <div class="card-body">
-          <h3>Final Project: Modular TVC Rocket</h3>
-          <p>Complete design, fabrication, and system integration summary.</p>
+          <p>Wildcard fabrication workflows across PCB and waterjet processes.</p>
+          <div class="card-tags"><span class="tag">Week 11</span><span class="tag">PCB</span><span class="tag">Waterjet</span></div>
         </div>
       </a>
     </section>
+
+    <p id="empty-state" class="empty-state" hidden>No projects match the current search/filter selection.</p>
   </main>
-  <script src="marked-local.js"></script>
+
   <script src="site.js"></script>
 </body>
 </html>
