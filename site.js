@@ -524,6 +524,44 @@
     apply();
   }
 
+  function initLiquidCards() {
+    var cards = toArray(document.querySelectorAll(".assignment-card, .hero-panel, .featured-panel, .controls, .profile, .toc-panel, .page-nav a"));
+    if (!cards.length) {
+      return;
+    }
+
+    each(cards, function (card) {
+      card.classList.add("liquid-tile");
+
+      function activate() {
+        card.classList.add("is-glass-active");
+      }
+
+      function deactivate() {
+        card.classList.remove("is-glass-active");
+        card.style.setProperty("--mx", "50%");
+        card.style.setProperty("--my", "50%");
+      }
+
+      card.addEventListener("mousemove", function (e) {
+        var rect = card.getBoundingClientRect();
+        if (!rect.width || !rect.height) {
+          return;
+        }
+        var x = ((e.clientX - rect.left) / rect.width) * 100;
+        var y = ((e.clientY - rect.top) / rect.height) * 100;
+        card.style.setProperty("--mx", x.toFixed(2) + "%");
+        card.style.setProperty("--my", y.toFixed(2) + "%");
+        activate();
+      });
+
+      card.addEventListener("mouseenter", activate);
+      card.addEventListener("mouseleave", deactivate);
+      card.addEventListener("focusin", activate);
+      card.addEventListener("focusout", deactivate);
+    });
+  }
+
   function parseMarkdown(raw) {
     if (!window.marked) {
       return null;
@@ -612,6 +650,7 @@
     });
 
     safe(initHomeFilters);
+    safe(initLiquidCards);
 
     each(document.querySelectorAll(".assignment-card, .hero-panel, .featured-panel, .profile, .controls, .toc-panel"), function (el) {
       el.classList.add("reveal");
