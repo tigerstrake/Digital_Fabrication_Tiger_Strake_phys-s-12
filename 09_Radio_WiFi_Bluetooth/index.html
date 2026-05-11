@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tiger Strake Digital Fabrication</title>
+  <link href="../style.css" rel="stylesheet">
+</head>
+<body class="site-page">
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title">PHYS-S-12: Intro to Digital Fabrication</h1>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../Final_Project/index.html">Final Project</a>
+        <a href="https://nathanmelenbrink.github.io/intro-dig-fab/index.html">My Class</a>
+        <a href="../about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <xmp class="markdown-source">
+<br> 
+<b>
+<font size="5">
+ESP32 Communication
+</font>
+</b>
+<font size="4">
+<br>
+The assignment for today was to use multiple ESP32 boards and make them communicate using WiFi or Radio. I chose to use 2 ESP32 dev boards and use ESPnow to send alternating numbers. One ESP sends even numbers and the other one answers odd numbers. The other ESP can then output the incoming signal in the serial monitor. This way you can see the numbers received. 
+<br>
+This is the code I used for the Arduino. It outputs the MAC address of the Arduino. 
+</b>
+
+
+
+
+<pre><code style="color: black;">
+  #include "WiFi.h"
+
+  void setup(){
+    Serial.begin(115200);
+    WiFi.mode(WIFI_MODE_STA);
+    Serial.println(WiFi.macAddress());
+  }
+  
+  void loop(){
+    Serial.println(WiFi.macAddress());;
+  }
+</code></pre>
+<br>
+<br>
+This MAC address can then be pasted into this code so the other Arduino knows it and can communicate with it. Both scripts have to be executed on both Arduinos.
+<br>
+<br>
+<br>
+<pre><code style="color: black;">
+  #include <esp_now.h>
+    #include <WiFi.h>
+    
+    
+    // REPLACE WITH THE MAC Address of your receiver.  Code is the same for both boards, with the exception of the following line.
+    uint8_t broadcastAddress[] =  {0x94, 0xB5, 0x55, 0x23, 0xF6, 0xD0};   // this is board no 1.
+    //uint8_t broadcastAddress[] =  {0x24, 0x62, 0xAB, 0xB0, 0x34, 0x8C};  this is board no 2
+    
+    // Variable to store if sending data was successful
+    String success;
+    
+    byte incomingByte;
+    byte outgoingByte;
+    
+    
+    // Callback when data is sent
+    void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) {
+      Serial.print("\r\nLast Packet Send Status:\t");
+      Serial.println(status == ESP_NOW_SEND_SUCCESS ? "Delivery Success" : "Delivery Fail");
+      if (status ==0){
+        success = "Delivery Success :)";
+      }
+      else{
+        success = "Delivery Fail :(";
+      }
+    }
+    
+    // Callback when data is received
+    void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
+      memcpy(&incomingByte, incomingData, sizeof(incomingByte));
+      Serial.print("Bytes received: ");
+      Serial.println(len);
+    }
+    
+    void setup() {
+      // Init Serial Monitor
+      Serial.begin(115200);
+    
+    
+      // Set device as a Wi-Fi Station
+      WiFi.mode(WIFI_STA);
+    
+      // Init ESP-NOW
+      if (esp_now_init() != ESP_OK) {
+        Serial.println("Error initializing ESP-NOW");
+        return;
+      }
+    
+      // Register for a callback function that will be called when data is received
+      esp_now_register_send_cb(OnDataSent);
+    
+      // Register peer
+      esp_now_peer_info_t peerInfo;
+      memset(&peerInfo, 0, sizeof(peerInfo));
+      memcpy(peerInfo.peer_addr, broadcastAddress, 6);
+      peerInfo.channel = 0;  
+      peerInfo.encrypt = false;
+    
+      // Add peer        
+      if (esp_now_add_peer(&peerInfo) != ESP_OK){
+        Serial.println("Failed to add peer");
+        return;
+      }
+      // Register for a callback function that will be called when data is received
+      esp_now_register_recv_cb(OnDataRecv);
+    }
+    bool isPrime(int num) {
+      if(num < 2) 
+        return false;
+      for(int i = 2; i <= sqrt(num); i++) {
+        if(num % i == 0)
+          return false;
+      }
+      return true;
+    }
+    
+    void loop() {
+      if(Serial.available() > 0) {
+        int incomingByte = Serial.read();
+        Serial.println(incomingByte);
+        int outgoingByte = incomingByte;
+        do {
+          outgoingByte++;
+        } while(!isPrime(outgoingByte));
+        Serial.println(outgoingByte);
+      }
+    }
+    
+      // Send message via ESP-NOW
+      esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *) &outgoingByte, sizeof(outgoingByte));
+    
+      if (result == ESP_OK) {
+        Serial.println("Sent with success");
+      }
+      else {
+        Serial.println("Error sending the data");
+      }
+    
+     delay(1000);
+    
+    }
+</code></pre>
+<br>
+<br></xmp>
+  </main>
+  <script src="../marked-local.js"></script>
+  <script src="../site.js"></script>
+</body>
+</html>

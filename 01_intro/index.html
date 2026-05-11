@@ -1,40 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<title>PS70: Intro to Digital Fabrication </title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="../style.css" rel="stylesheet">
-
-
-<nav class="navbar navbar-expand-sm navbar-light bg-light">
-  <div style="align-items: left; justify-content:left;" class="container-fluid">
-    <h3 class="nav-title"> PS70: Intro to Digital Fabrication</h3>
-    <div class="navbar-nav">
-      <h4></h4>
-      <h4><a class="nav-link" href="../index.html">Home</a></h4>
-      <h4><a class="nav-link" href="../about.html">About</a></h4>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tiger Strake Digital Fabrication</title>
+  <link href="../style.css" rel="stylesheet">
+</head>
+<body class="site-page">
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title">PHYS-S-12: Intro to Digital Fabrication</h1>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../Final_Project/index.html">Final Project</a>
+        <a href="https://nathanmelenbrink.github.io/intro-dig-fab/index.html">My Class</a>
+        <a href="../about.html">About</a>
+      </nav>
     </div>
-  </div>
-</nav>
+  </header>
 
-<body>
-
-
-<xmp style="display:none;">
+  <main class="page-content">
+    <xmp class="markdown-source">
 <br> 
 
 #### Week 1: Introduction 
 
-Here is an image: 
+Today was the first day of our Digital Fabrication course. We did an introduction and overview of the course and later we learned 
+how to build our own website. We also brainstormed about our final project. I have two ideas for the final project:
 
-![image of embroidery](./sew.png)
+1. Advanced rocket to measure methane and CO2 levels in the atmosphere
+2. Automatic chessboard which uses AI as an opponent
 
-And here is a	[link](../index.html).
+1: This mid-scale rocket will use advanced technologies and chemistry. It will be used to measure the concentration of toxic gases in 
+our atmosphere at various altitudes to better understand climate change.
+Additionally, it will feature movable fins for stability (maybe using piezoelectric effect), reaction wheels, thrust vectoring and two 360° cameras. 
+The footage of the cameras can be stitched together and stabilized. 
+Below is a sketch I made to illustrate how the rocket would look like. 
 
-</xmp>
+<img src="Rocket_Sketch.jpg" width="537" height="480">
+
+
+
+2: My second idea is to build a chessboard against which you can play. It uses magnets attached to a x-y cartesian motion system below the board
+to move pieces. It will use the Stockfish chess AI. The video below is a simplification showing how the mechanics work in general. 
+
+<video width="480" height="360" controls>
+  <source src="chessboard robot (v2~recovered) copy.mp4" type="video/mp4">
+</video></xmp>
+  </main>
+  <script src="../marked-local.js"></script>
+  <script src="../site.js"></script>
 </body>
-
-<script src="../strapdown.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
-
 </html>

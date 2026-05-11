@@ -1,62 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<title>PS70: Intro to Digital Fabrication </title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="./style.css" rel="stylesheet">
-
-<nav class="navbar navbar-expand-sm navbar-light bg-light">
-  <div style="align-items: left; justify-content:left;" class="container-fluid">
-    <h3 class="nav-title"> PS70: Intro to Digital Fabrication</h3>
-    <div class="navbar-nav">
-      <h4><a class="nav-link" href="./index.html">Home</a></h4>
-      <h4><a class="nav-link" href="./about.html">About</a></h4>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tiger Strake Digital Fabrication</title>
+  <link href="style.css" rel="stylesheet">
+</head>
+<body class="site-page home-page">
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title">PHYS-S-12: Intro to Digital Fabrication</h1>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="Final_Project/index.html">Final Project</a>
+        <a href="https://nathanmelenbrink.github.io/intro-dig-fab/index.html">My Class</a>
+        <a href="about.html">About</a>
+      </nav>
     </div>
-  </div>
-</nav>
+  </header>
 
-<body>
+  <main class="page-content">
+    <section class="hero-panel" id="top">
+      <div>
+        <span class="hero-eyebrow">Digital Fabrication Portfolio</span>
+        <h2 class="hero-title">Technical Builds Across CAD, Electronics, CNC, and Embedded Systems</h2>
+        <p class="hero-copy">
+          A complete archive of my PHYS-S-12 work, from early concepts to integrated systems engineering.
+          Each page preserves the full weekly documentation with improved navigation and readability.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="Final_Project/index.html">View Final Project</a>
+          <a class="btn" href="#archive">Browse Weekly Archive</a>
+        </div>
+      </div>
+    </section>
 
-<xmp style="display:none;">
+    <section class="featured-panel">
+      <a class="featured-media" href="Final_Project/index.html" aria-label="Open final project">
+        <img src="whole_model_final_v3_2023-Aug-03_03-43-32AM-000_CustomizedView5102097637.png" alt="Final rocket project render">
+      </a>
+      <div>
+        <h2>Featured: Modular TVC Rocket</h2>
+        <p>
+          The final project combines parametric design, electronics integration, and iterative prototyping into a
+          thrust-vector-control rocket platform.
+        </p>
+        <div class="card-tags" style="margin-bottom: 0.8rem;">
+          <span class="tag">Final Project</span>
+          <span class="tag">3D Printing</span>
+          <span class="tag">Control Systems</span>
+          <span class="tag">Embedded</span>
+        </div>
+        <a class="btn btn-primary" href="Final_Project/index.html">Read Full Case Study</a>
+      </div>
+    </section>
 
-<div class="container-fluid bg-3 text-center">
-  
-  <div class="row">
-    <div class="col-sm-4">
-      ![sewing image](./01_intro/sew.png) 
-      [Week 1: Introduction](./01_intro/index.html)
-    </div>
-    <div class="col-sm-4">
-      ![sewing image](./01_intro/sew.png)
-      [Build Log: Carbon Fiber Spars](./build_log/index.html)
-    </div>
-    <div class="col-sm-4">
-      ![sewing image](./01_intro/sew.png)
-      [Stanford Dining Recommender](./stanford_dining/index.html)
-    </div>
-  </div>
+    <section class="controls" id="archive" aria-label="Archive controls">
+      <div class="controls-top">
+        <h2>Weekly Archive</h2>
+        <p id="results-count">0 projects shown</p>
+      </div>
+      <div class="search-wrap">
+        <input id="project-search" type="search" placeholder="Search weeks, tools, methods, or topics..." aria-label="Search projects">
+      </div>
+      <div class="filter-chips" role="group" aria-label="Filter projects by topic">
+        <button class="filter-chip active" data-filter="all" type="button">All</button>
+        <button class="filter-chip" data-filter="cad" type="button">CAD</button>
+        <button class="filter-chip" data-filter="electronics" type="button">Electronics</button>
+        <button class="filter-chip" data-filter="manufacturing" type="button">Manufacturing</button>
+        <button class="filter-chip" data-filter="programming" type="button">Programming</button>
+        <button class="filter-chip" data-filter="systems" type="button">Systems</button>
+      </div>
+    </section>
 
-  <div class="row">
-    <div class="col-sm-4">
-      ![sewing image](./01_intro/sew.png)
-      [Broken Link]()
-    </div>
-    <div class="col-sm-4">
-      ![sewing image](./01_intro/sew.png)
-      [Broken Link]()
-    </div>
-    <div class="col-sm-4">
-      ![sewing image](./01_intro/sew.png)
-      [Broken Link]()
-    </div>
-  </div>
-</div>
-</div>
+    <section class="assignment-grid" aria-label="Assignments">
+      <a class="assignment-card" href="01_intro/index.html" data-title="Week 1 Introduction and Brainstorming" data-tags="concepts planning systems robotics">
+        <div class="card-image"><img src="thumbnail.png" alt="Introduction and brainstorming thumbnail"></div>
+        <div class="card-body">
+          <h3>01 Introduction and Brainstorming</h3>
+          <p>Project direction, concept exploration, and first-system ideas.</p>
+          <div class="card-tags"><span class="tag">Week 1</span><span class="tag">Planning</span><span class="tag">Systems</span></div>
+        </div>
+      </a>
 
-</xmp>
+      <a class="assignment-card" href="02_laser_cutting/index.html" data-title="Week 2 2D design and cutting laser cad modelling" data-tags="cad manufacturing laser">
+        <div class="card-image"><img src="press-fit_triangles.JPG" alt="Laser cut press-fit triangles"></div>
+        <div class="card-body">
+          <h3>02 2D Design and Cutting</h3>
+          <p>Press-fit design, CAD workflows, and fabrication constraints.</p>
+          <div class="card-tags"><span class="tag">Week 2</span><span class="tag">CAD</span><span class="tag">Laser</span></div>
+        </div>
+      </a>
+
+      <a class="assignment-card" href="03_Handtools_&_Electric_Motors/index.html" data-title="Week 3 electronics tools motor mechanics" data-tags="electronics manufacturing systems">
+        <div class="card-image"><img src="IMG_5995.JPG" alt="Hand tools and motor build"></div>
+        <div class="card-body">
+          <h3>03 Electronics and Tools</h3>
+          <p>Kinematic sculpture mechanics, assembly, and motor-driven structure.</p>
+          <div class="card-tags"><span class="tag">Week 3</span><span class="tag">Electronics</span><span class="tag">Mechanics</span></div>
+        </div>
+      </a>
+
+      <a class="assignment-card" href="04_microcontroller_programming/index.html" data-title="Week 4 microcontroller arduino programming control" data-tags="programming electronics systems">
+        <div class="card-image"><img src="sketch for microcontroller.png" alt="Microcontroller sketch"></div>
+        <div class="card-body">
+          <h3>04 Microcontroller Programming</h3>
+          <p>Arduino control logic, motor direction switching, and state signaling.</p>
+          <div class="card-tags"><span class="tag">Week 4</span><span class="tag">Programming</span><span class="tag">Control</span></div>
+        </div>
+      </a>
+
+      <a class="assignment-card" href="05_3D_Printing/index.html" data-title="Week 5 3D design printing tvc parametric" data-tags="cad manufacturing systems">
+        <div class="card-image"><img src="TVC_Tiger_2023-Jul-17_01-36-58AM-000_CustomizedView36845387542.png" alt="3D printed rocket part render"></div>
+        <div class="card-body">
+          <h3>05 3D Design and Printing</h3>
+          <p>Parametric iterations, compliant mechanisms, and rapid prototyping.</p>
+          <div class="card-tags"><span class="tag">Week 5</span><span class="tag">3D Printing</span><span class="tag">CAD</span></div>
+        </div>
+      </a>
+
+      <a class="assignment-card" href="06_input_devices/index.html" data-title="Week 6 input devices sensors gyroscope mpu6050" data-tags="electronics programming systems">
+        <div class="card-image"><img src="mpu-6050-6-dof-gyro-accelerometer-imu-3_1_243a42b8-726d-4420-986e-e1fb02d20b7a_1024x.jpg.webp" alt="MPU 6050 input sensor module"></div>
+        <div class="card-body">
+          <h3>06 Electronic Input Devices</h3>
+          <p>Custom sensing and off-the-shelf IMU integration for system feedback.</p>
+          <div class="card-tags"><span class="tag">Week 6</span><span class="tag">Sensors</span><span class="tag">Electronics</span></div>
+        </div>
+      </a>
+
+      <a class="assignment-card" href="07_output_devices/index.html" data-title="Week 7 output devices oled oscilloscope" data-tags="electronics programming">
+        <div class="card-image"><img src="Screenshot 2023-08-06 at 18.48.35.png" alt="Output devices screenshot"></div>
+        <div class="card-body">
+          <h3>07 Electronic Output Devices</h3>
+          <p>Output interfaces, display integration, and instrumentation checks.</p>
+          <div class="card-tags"><span class="tag">Week 7</span><span class="tag">Outputs</span><span class="tag">Electronics</span></div>
+        </div>
+      </a>
+
+      <a class="assignment-card" href="08_CNC_Milling_Molding_Casting/index.html" data-title="Week 8 cnc milling molding casting cam" data-tags="manufacturing cad">
+        <div class="card-image"><img src="SRM-20.jpg" alt="CNC milling machine"></div>
+        <div class="card-body">
+          <h3>08 CNC Milling, Molding, and Casting</h3>
+          <p>CAM setup, machining iterations, mold making, and cast results.</p>
+          <div class="card-tags"><span class="tag">Week 8</span><span class="tag">CNC</span><span class="tag">Manufacturing</span></div>
+        </div>
+      </a>
+
+      <a class="assignment-card" href="09_Radio_WiFi_Bluetooth/index.html" data-title="Week 9 esp32 communication wifi bluetooth radio" data-tags="programming electronics systems">
+        <div class="card-image"><img src="71xM7j0SJSL.jpg" alt="Wireless communication hardware"></div>
+        <div class="card-body">
+          <h3>09 ESP32 Communication</h3>
+          <p>Inter-board communication workflows with wireless protocols.</p>
+          <div class="card-tags"><span class="tag">Week 9</span><span class="tag">ESP32</span><span class="tag">Networking</span></div>
+        </div>
+      </a>
+
+      <a class="assignment-card" href="10_Mashine_Building/index.html" data-title="Week 10 machine building robotics steppers" data-tags="systems manufacturing electronics">
+        <div class="card-image"><img src="Nema-17-Bipolar-45Ncm-64oz-in-2A-42x42x40mm-4-Wires-w-1m-Cable-Connector-1100x1100.jpg" alt="Nema 17 motor for machine building"></div>
+        <div class="card-body">
+          <h3>10 Machine Building</h3>
+          <p>System-level mechanical integration and robotic architecture study.</p>
+          <div class="card-tags"><span class="tag">Week 10</span><span class="tag">Robotics</span><span class="tag">Systems</span></div>
+        </div>
+      </a>
+
+      <a class="assignment-card" href="11_Wildcard/index.html" data-title="Week 11 wildcard pcb waterjet fabrication" data-tags="manufacturing electronics cad">
+        <div class="card-image"><img src="Screenshot 2023-08-06 at 19.00.59.png" alt="Wildcard project screenshot"></div>
+        <div class="card-body">
+          <h3>11 Water Jet and PCB Manufacturing</h3>
+          <p>Wildcard fabrication workflows across PCB and waterjet processes.</p>
+          <div class="card-tags"><span class="tag">Week 11</span><span class="tag">PCB</span><span class="tag">Waterjet</span></div>
+        </div>
+      </a>
+
+      <a class="assignment-card" href="build_log/index.html" data-title="Build Log Carbon Fiber Spars Airframe Stability Quadcopter Drone" data-tags="manufacturing systems robotics">
+        <div class="card-image"><img src="thumbnail.png" alt="Carbon fiber spar build"></div>
+        <div class="card-body">
+          <h3>Build Log: Carbon Fiber Spars</h3>
+          <p>Cutting CF rods and printing clamp brackets to eliminate motor arm twist on the quadcopter airframe.</p>
+          <div class="card-tags"><span class="tag">Build Log</span><span class="tag">Carbon Fiber</span><span class="tag">Manufacturing</span></div>
+        </div>
+      </a>
+
+      <a class="assignment-card" href="stanford_dining/index.html" data-title="Stanford Dining Recommender Python scraper OpenAI Discord automation menu" data-tags="programming systems">
+        <div class="card-image"><img src="thumbnail.png" alt="Stanford dining recommender"></div>
+        <div class="card-body">
+          <h3>Stanford Dining Recommender</h3>
+          <p>Automated menu scraper with dietary scoring and AI-powered dining recommendations sent to Discord.</p>
+          <div class="card-tags"><span class="tag">Python</span><span class="tag">Automation</span><span class="tag">AI</span></div>
+        </div>
+      </a>
+    </section>
+
+    <p id="empty-state" class="empty-state" hidden>No projects match the current search/filter selection.</p>
+  </main>
+
+  <script src="site.js"></script>
 </body>
-
-<script src="./strapdown.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
-
 </html>

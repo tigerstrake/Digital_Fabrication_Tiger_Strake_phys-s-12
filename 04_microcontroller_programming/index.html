@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tiger Strake Digital Fabrication</title>
+  <link href="../style.css" rel="stylesheet">
+</head>
+<body class="site-page">
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title">PHYS-S-12: Intro to Digital Fabrication</h1>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../Final_Project/index.html">Final Project</a>
+        <a href="https://nathanmelenbrink.github.io/intro-dig-fab/index.html">My Class</a>
+        <a href="../about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <xmp class="markdown-source">
+<br> 
+
+#### Week 2: Microcontroller programming 
+<font size="4">
+In this lesson we learned how to use Arduinos. Arduinos are small microcontrollers, meaning that they can manage input and output devices. This way you can for example program the Arduino
+to move an actuator when a button is pressed. This is a very simplified example, they can manage much more complicated in- and output. 
+<br>
+The assignment for this class was just to build something using a microcontroller. I decided to merge my two projects, the kinematic motion system and the microcontroller assignment. 
+
+<br>
+<br>
+<b>
+Hardware Components
+</b>
+
+The following are the key hardware components used in the system:
+
+- Arduino Uno R3: This is a microcontroller board based on the ATmega328P. It was used as the brain of the system to control and communicate with all other components.
+- L9110H Bridge DC Motor Driver: This was used to control the 6V electric geared motor. The L9110H chip allows for direct control of motor direction and speed via inputs from the Arduino.
+- 6V Electric Geared Motor: The DC motor used in this system, which is operated by the L9110H Bridge DC motor driver under the control of the Arduino Uno R3.
+- LED Indicator: Consists of a red and a blue LED. The red LED blinks when the system stops, and the blue LED lights up when the system is moving. These LEDs give a visual indication of the system's operational status.
+- Power Supply: The system is powered by 6 AA batteries.
+- Breadboard: This was used for making connections between components easily, safely, and effectively.
+<br>
+<br>
+I programmed the microcontroller to alter the direction the motor is spinning every few seconds. It turns the motor in one direction for five seconds, then stops for two and then 
+continues to spin the motor in the other direction. I also installed little LED indicators that light up when the motor is spinning or stopping. The red LED blinks while the 
+motor is stopping while the blue LED is on while the motor spins. 
+<br>
+<br>
+<b>
+This is the code I used for the Arduino:
+</b>
+
+
+
+
+<pre><code style="color: black;">
+  const int A1A = 3;  // define pin 3 for speed
+  const int A1B = 4;  // define pin 4 for direction
+  const int ledPin2 = 12; // LED during movement
+  const int ledPin3 = 13; // LED during pause
+  
+  void setup() {
+    pinMode(A1A, OUTPUT);     // specify these pins as outputs
+    pinMode(A1B, OUTPUT);
+    digitalWrite(A1A, LOW);   // start with the motors off 
+    digitalWrite(A1B, LOW);
+    pinMode(ledPin2, OUTPUT);
+    pinMode(ledPin3, OUTPUT);
+  }
+  
+  void loop() {
+    // start the motor 
+    digitalWrite(A1A, HIGH);   
+    digitalWrite(A1B, LOW);
+    digitalWrite(ledPin2, HIGH);
+    digitalWrite(ledPin3, LOW);
+    delay(5000);              
+  
+
+    digitalWrite(A1A, LOW);   
+    digitalWrite(A1B, LOW);
+    digitalWrite(ledPin2, LOW);
+    for(int i = 0; i < 4; i++) {
+    digitalWrite(ledPin3, HIGH);
+    delay(250);
+    digitalWrite(ledPin3, LOW);
+    delay(250);
+    }
+  
+    // start the motor in opposite direction
+    digitalWrite(A1A, LOW);  
+    digitalWrite(A1B, HIGH);
+    digitalWrite(ledPin2, HIGH);
+    digitalWrite(ledPin3, LOW);
+    delay(5000);    
+  
+    // stop the motor
+    digitalWrite(A1A, LOW);  
+    digitalWrite(A1B, LOW);
+    digitalWrite(ledPin2, LOW);
+    for(int i = 0; i < 4; i++) {
+    digitalWrite(ledPin3, HIGH);
+    delay(250);
+    digitalWrite(ledPin3, LOW);
+    delay(250);
+    }
+  
+  
+  }
+</code></pre>
+
+
+And here is a video of how the sculpture works: 
+<video width="1224" height="720" controls>
+  <source src="IMG_6142.MOV" type="video/mp4">
+</video></xmp>
+  </main>
+  <script src="../marked-local.js"></script>
+  <script src="../site.js"></script>
+</body>
+</html>
