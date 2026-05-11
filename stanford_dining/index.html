@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tiger Strake Digital Fabrication</title>
+  <link href="../style.css" rel="stylesheet">
+</head>
+<body class="site-page">
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title">PHYS-S-12: Intro to Digital Fabrication</h1>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../Final_Project/index.html">Final Project</a>
+        <a href="https://nathanmelenbrink.github.io/intro-dig-fab/index.html">My Class</a>
+        <a href="../about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <xmp class="markdown-source">
+<br>
+
+#### Stanford Dining Recommender
+
+**The Problem**
+
+Stanford has several dining halls, each with different menus for breakfast, brunch, lunch, and dinner. The menu data is public, but the R&DE dining website is not built to answer the question I actually care about: which dining hall has the healthiest, highest-quality meal for me right now? Checking manually means opening the site, clicking through each hall, and trying to compare options by memory across tabs. That friction meant I often defaulted to wherever I happened to walk past rather than where the food was actually good.
+
+**What I Built**
+
+A daily menu analysis pipeline that automatically fetches Stanford's dining menus, ranks the options against my dietary preferences, and delivers a recommendation to Discord before each meal window.
+
+The architecture is a simple linear pipeline:
+
+```
+GitHub Actions schedule
+  → Python scraper
+    → Structured menu JSON
+      → Dietary scoring engine
+        → OpenAI recommendation layer
+          → Discord notification
+```
+
+**How It Works**
+
+*Scraping.* Stanford's R&DE menu page does not expose a clean public API. The scraper navigates the site's form-based interface — selecting the target date, meal period, and dining hall — and parses the returned HTML to extract the menu items for each hall. The cleaned output is saved as structured JSON so the data is inspectable and easy to debug if the scrape is incomplete.
+
+*Scoring.* Before any AI model runs, the system applies deterministic dietary scoring. Each dining hall's menu is evaluated against a fixed preference set: whole foods, high-quality protein, vegetables, legumes, whole grains, fruit, nuts, yogurt, and balanced meals score well. Fried foods, sugary desserts, refined-carb-heavy options, ultra-processed items, processed meats, breaded meat, fish, seafood, and egg-forward dishes are penalized. Healthy vegetarian options are treated as strong choices when they provide real nutrition. This produces a ranked ordering of halls before the model sees any data.
+
+*AI recommendation.* An OpenAI model receives the cleaned menu data and the scoring summary. Its job is not to browse or guess — it works only from the structured input already produced. It returns a concise recommendation: best dining hall, backup option, recommended plate, foods to skip, confidence level, and short reasoning. The output is formatted for Discord and delivered via webhook.
+
+*Fallbacks.* If the AI call fails, the deterministic scoring layer can still produce a usable recommendation on its own. If the scrape is incomplete, the system detects that and surfaces it rather than pretending the result is reliable.
+
+**What It Combines**
+
+Web scraping, structured data processing, scheduled automation, scoring logic, LLM integration, and notification delivery — all wired together into something I use every day. The project is small but solves a real problem: choosing where to eat based on live data instead of guesswork.
+
+</xmp>
+  </main>
+  <script src="../marked-local.js"></script>
+  <script src="../site.js"></script>
+</body>
+</html>

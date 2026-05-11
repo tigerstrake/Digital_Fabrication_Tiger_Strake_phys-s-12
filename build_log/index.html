@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tiger Strake Digital Fabrication</title>
+  <link href="../style.css" rel="stylesheet">
+</head>
+<body class="site-page">
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title">PHYS-S-12: Intro to Digital Fabrication</h1>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../Final_Project/index.html">Final Project</a>
+        <a href="https://nathanmelenbrink.github.io/intro-dig-fab/index.html">My Class</a>
+        <a href="../about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <xmp class="markdown-source">
+<br>
+
+#### Build Log: Carbon Fiber Spars — Airframe Stability Fix
+
+**Problem**
+
+The quadcopter was developing a stability issue where the motors were twisting out of the horizontal plane under load. Because the motors sit at the tips of the arms, any flex or rotation in the arm mounts directly corrupts the thrust vector — what should be purely vertical lift becomes angled, which the flight controller then has to fight against continuously. The result was oscillation and poor attitude hold, especially under aggressive inputs.
+
+The fix: stiffen the connection between the motor arms and the main airframe using carbon fiber rods as structural spars. Carbon fiber has an extremely high stiffness-to-weight ratio, making it well suited for this kind of brace — it adds almost no mass while dramatically reducing arm flex.
+
+**What I Built**
+
+I cut four carbon fiber rods to length to serve as spars running between the motor arm mounts and the central airframe body. To attach them without modifying the existing airframe, I designed and printed four clamp brackets that grip the existing frame rails and accept the CF rod ends. The clamps are drop-in additions — no drilling, no permanent modification to the airframe.
+
+**Process**
+
+Cutting carbon fiber requires care. CF dust is extremely fine and the fibers are hazardous to inhale, so I used a respirator rated for particulates before making any cuts. I also wore safety glasses and kept the work area ventilated. The rods were cut to length using a rotary tool with a cutoff disc, which produces a clean edge without cracking or delaminating the fiber layup.
+
+After cutting, I deburred the rod ends and dry-fit the clamps to check alignment. The printed brackets clamp around the existing airframe tubes using a two-piece design that bolts together around the rod, holding the CF spar in compression against the frame.
+
+**Next Steps**
+
+With the spars installed, the next step is a hover test to confirm the motor arm twist is eliminated and to see whether the oscillation behavior improves. If the clamps introduce any new resonance, the bracket geometry may need to be tuned.
+
+</xmp>
+  </main>
+  <script src="../marked-local.js"></script>
+  <script src="../site.js"></script>
+</body>
+</html>
